@@ -6,7 +6,6 @@ En esta práctica se desarrolló una base de datos llamada **llantas_db**, que c
 El objetivo principal fue aplicar conocimientos de bases de datos relacionales como consultas, subconsultas, índices, vistas, transacciones y procedimientos almacenados, midiendo además el rendimiento de las consultas y la eficiencia de los índices.
 Todo se documentó y se organizó para que sea fácil de entender y seguir paso a paso.
 
-
 ## INVESTIGACIÓN
 
 ### CREATE DATABASE
@@ -75,9 +74,6 @@ Ejemplo práctico: si intentamos crear un pedido para un cliente que no existe, 
   
 DECLARE i INT DEFAULT 1;
 SET i = i + 1
-
-
---
 
 ## PARTE PRÁCTICA
 
