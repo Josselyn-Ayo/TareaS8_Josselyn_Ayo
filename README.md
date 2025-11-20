@@ -6,14 +6,13 @@ En esta práctica se desarrolló una base de datos llamada **llantas_db**, que c
 El objetivo principal fue aplicar conocimientos de bases de datos relacionales como consultas, subconsultas, índices, vistas, transacciones y procedimientos almacenados, midiendo además el rendimiento de las consultas y la eficiencia de los índices.
 Todo se documentó y se organizó para que sea fácil de entender y seguir paso a paso.
 
----
 
 ## INVESTIGACIÓN
 
 ### CREATE DATABASE
 
 Se utilizó la sentencia:
-`CREATE DATABASE llantas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`
+CREATE DATABASE llantas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 * **CHARACTER SET:** define la codificación de los caracteres que se pueden almacenar en la base de datos. Permite letras, números, símbolos y emojis.
 * **COLLATE:** define cómo se comparan y ordenan los caracteres. Por ejemplo, si distingue entre mayúsculas, minúsculas y acentos.
@@ -26,18 +25,16 @@ Esto afecta las consultas como:
 * **ORDER BY:** el orden de palabras con acento o mayúsculas puede variar.
 * **GROUP BY:** agrupa palabras según las reglas de collation; palabras iguales con distinto acento o mayúscula pueden considerarse diferentes.
 
----
 
 ### ENGINE = InnoDB
 
 * InnoDB es un motor de almacenamiento confiable y moderno que soporta transacciones, llaves foráneas y ACID.
 * Se usa para garantizar la integridad de los datos, evitar pérdidas y manejar correctamente errores en operaciones múltiples.
-* Se coloca al final de la definición de la tabla: `ENGINE=InnoDB`.
+* Se coloca al final de la definición de la tabla: ENGINE=InnoDB.
 * Ventajas: permite transacciones, llaves foráneas, bloqueo a nivel de fila y cumplimiento ACID.
 
 Ejemplo práctico: si intentamos crear un pedido para un cliente que no existe, InnoDB rechaza la operación gracias a la llave foránea.
 
----
 
 ### DATOS HUÉRFANOS
 
@@ -46,7 +43,6 @@ Ejemplo práctico: si intentamos crear un pedido para un cliente que no existe, 
 * Es un problema porque provoca errores en las consultas, resultados incompletos y afecta la integridad de la base.
 * Se evita usando llaves foráneas con reglas como **ON DELETE CASCADE**, **SET NULL** o **RESTRICT**.
 
----
 
 ### INTEGRIDAD REFERENCIAL
 
@@ -62,7 +58,6 @@ Ejemplo práctico: si intentamos crear un pedido para un cliente que no existe, 
   * **NO ACTION:** impide cambios que rompan la integridad.
 <img width="863" height="354" alt="image" src="https://github.com/user-attachments/assets/d62400e9-81fd-48e8-833d-d01d2d8cc0d6" />
 
----
 
 ### ÍNDICES
 
@@ -71,20 +66,18 @@ Ejemplo práctico: si intentamos crear un pedido para un cliente que no existe, 
 * Tipos: normal, único, compuesto, fulltext, hash, espacial.
 * Se recomienda crear índices en columnas que se usan mucho en WHERE, JOIN, ORDER BY o GROUP BY.
 
----
 
 ### DECLARE Y SET EN PROCEDIMIENTOS
 
-* `DECLARE` se usa para crear variables internas en un procedimiento.
-* `SET` se usa para asignar valores o modificar variables dentro del procedimiento.
+* DECLARE se usa para crear variables internas en un procedimiento.
+* SET se usa para asignar valores o modificar variables dentro del procedimiento.
 * Ejemplo:
-
-```sql
+  
 DECLARE i INT DEFAULT 1;
-SET i = i + 1;
-```
+SET i = i + 1
 
----
+
+--
 
 ## PARTE PRÁCTICA
 
@@ -93,26 +86,22 @@ SET i = i + 1;
 * Se crearon las tablas clientes, productos, ventas y detalle_venta con claves primarias y foráneas correctamente definidas.
 * Se insertaron entre 80 y 150 registros de prueba en cada tabla usando consultas con `WITH RECURSIVE`.
 
----
 
 ### CONSULTAS BÁSICAS
 
 * Se hicieron consultas con **WHERE**, **LIKE**, **ORDER BY**, **GROUP BY** y funciones agregadas como **SUM** y **COUNT**.
 
----
 
 ### SUBCONSULTAS
 
 * Se realizaron subconsultas en **WHERE**, **FROM** y subconsultas anidadas con funciones agregadas.
 
----
 
 ### ÍNDICES
 
 * Se crearon índices en columnas importantes como `id_cliente` y `id_producto` para acelerar búsquedas.
 * Se midió el rendimiento antes y después de aplicar los índices, observando mejoras significativas en las consultas.
 
----
 
 ### EVALUACIÓN DE RENDIMIENTO
 
@@ -120,7 +109,6 @@ SET i = i + 1;
 * Luego se crearon índices y se volvieron a ejecutar.
 * Resultado: las consultas fueron mucho más rápidas y eficientes, especialmente en tablas grandes.
 
----
 
 ### VISTAS
 
@@ -131,7 +119,6 @@ SET i = i + 1;
   3. Identificar productos más vendidos.
 * Esto simplifica la generación de reportes y facilita el análisis de datos sin repetir joins y sumas.
 
----
 
 ### TRANSACCIONES
 
@@ -158,7 +145,3 @@ Finalmente, los procedimientos almacenados permitieron automatizar acciones espe
 ## EVIDENCIAS
 <img width="948" height="643" alt="image" src="https://github.com/user-attachments/assets/b49b8f4c-941e-45ab-b2bf-6fa7db201a98" />
 <img width="954" height="775" alt="image" src="https://github.com/user-attachments/assets/59d61df5-dddd-4926-ad1a-97444d4cdb10" />
-
-
-
-eso también?
